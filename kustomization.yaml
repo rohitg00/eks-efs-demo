@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+secretGenerator:
+- name: mysql-pass
+  literals:
+   - password=root
+resources: 
+  - create-rbac.yaml
+  - create-efs-provisioner.yaml
+  - create-storage.yaml
+  - deploy-mysql.yaml
+  - deploy-wordpress.yaml
+
